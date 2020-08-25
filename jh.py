@@ -14,14 +14,10 @@ class Cbc:
         webbrowser.open("https://ibsbjstar.ccb.com.cn/CCBIS/V6/STY1/CN/login.jsp")
         time.sleep(1)
         while isopen == False:
-            print("1111111")
             im = ImageGrab.grab()
-            print("22222222")
             im.save("assets/"+self.impath+"/a.jpg")
-            print("33333333")
             time.sleep(2)
             findimg = ac.imread("assets/"+self.impath+"/login.jpg")
-            print("44444444")
             maiimg = ac.imread("assets/"+self.impath+"/a.jpg")
             pos = ac.find_template(maiimg, findimg,0.3)
             if pos:
