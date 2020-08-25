@@ -23,7 +23,7 @@ class Cbc:
             if pos:
                 break
             time.sleep(3)
-        print("find it")
+        print("find it pos")
         return True
     #输入用户名
     def input_username(self):
