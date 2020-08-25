@@ -1,0 +1,23 @@
+#!/usr/local/bin/python3.7
+import urllib.request
+import urllib.parse
+import ssl
+
+# 全局取消证书验证
+ssl._create_default_https_context = ssl._create_unverified_context
+# 发送请求的地址
+url = 'https://www.xxxxxx.cn/community/questions/ask'
+# 请求头，使用cookie实现模拟登录
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.4 Safari/605.1.15',
+    'cookie': 'Hm_lpvt_8decfd249e4c816635a72c825e27da1a=1581998978; Hm_lvt_8decfd249e4c816635a72c825e27da1a=1581836896,1581906456,1581998809,1581998853; _ga=GA1.2.1949167017.1580877792; _gat_UA-127576832-1=1; _gid=GA1.2.386004501.1581837085; laravel_token=eyJpdiI6ImtWZ1wvcWZuXC9wUjJYVXNFcFpxSWx1QT09IiwidmFsdWUiOiJQTVRGMWEzbVdFRjhwT1hTRHpEWjUzWit2RHRpK2ZuRG5scGlKWG1HYm9pdzR3TTg4a2FVTXFOamJPcEtySTdQMzNkVVFNUXRoVlg3XC9zVHNpVjZ1TnNPcnBIeWxIR2tPOHVRT3BoK3hxZ0hlS3h3WGF1d1lXMVFiZHhyU3JKRzBkOUFBUGxwekxEOE1BdG9JS3RWcFE3UGUyZTQ4TlBlbTNRZUpadlZzdlBTSjh2RFgrN0k5YUY1V1Q2djJxSzhRUnNmenFaT2xkbWsyeEg2bzhWMWVQdkljNGxcLzYwcmVlYUlOK1E0ayt4KzJQa0M5dWxnUWVhRFJZbVVTekcyQ0pmUEJXMXVDVHBhN2ZnNnA3emg2WEhBPT0iLCJtYWMiOiI2MzIwZmU4ZWQwMzgyYTVkZWI0MTE5OGYyMjA4MDFmYjQ0MGY3ZGRkY2FjNzU1ZGJkZmJmN2RiZTk3YmFlNTAzIn0%3D; speedtest_session=eyJpdiI6ImFtNDlhaGMwRUJZWXYyZVZneHFPMlE9PSIsInZhbHVlIjoiUDR1Y2pLRThWZlh1K3lcL1N2bzFucnEyMmM2Qnp0Wnlqd0dcL1RnUHg2XC9CTnllb0FwUmtiYjlJUXR5QThBdU02YiIsIm1hYyI6ImQ4Mzk4YWY2NjQ3M2M0NmNmZDE3Njk2NDc1Yjc2ZTdhNjZhYTAzY2EyYTY1OWE2MWRjYmQ0YzFiNDQ1NDk0ZDYifQ%3D%3D; CNZZDATA1274897717=1649248696-1580888239-null%7C1581994444; remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6InZGd2ZSanhEMktvbnJZbk56TVFKQ1E9PSIsInZhbHVlIjoiYkJPUUNvUjg0V3VoellqWXFTZGFtQ0lHRnF0MFN0N0Q5SHJWQW9MTTY3RHJCbW9Va2F6N3FSQ2VhQmYzTkNnMkRpMlwvVDl0QUtPSGNQUG93UXNhYTloQTZLM1VWcTFGVUtnVUM1bTNTbk11d09QV0NOYVNJVE1oSDE1Nk85UFpsM3hRNVFlM1o1Nm00T0tBWDhoakZPeFJVQUdmYnhsYjFWSG5ib3ZVMUJCWmVIMDdaMjBGVnhQclhpUEFIK2Q1MiIsIm1hYyI6IjI4Yjk5MGJhY2I3OTgxY2YyYTdlZGMwOTJjYmUyNDVmZmUzODAwYzRhYjkxZjc3OTRiMDMyZWI3YzYyODI2ODEifQ%3D%3D; UM_distinctid=17037f052f56b-001db749caf48c-481c3301-13c680-17037f052f63d2; __gads=ID=ef366901b83a67c9:T=1581486459:S=ALNI_MbX3_Usu7NRtWMC1zDYjxLi08Uvsw',
+
+}
+# 创建请求
+request = urllib.request.Request(url, headers=headers)
+# 发送请求
+response = urllib.request.urlopen(request)
+
+# 保存返回的信息
+with open('/Users/mozili/PYTHONWORKSPACE/Reptile/login.html', 'wb')as fp:
+    fp.write(response.read())

@@ -1,0 +1,7 @@
+1.数据库配置读写
+2.websocket服务器配置读写
+3.websocket服务器 消息类型转发规则
+4.websocket客户端测试
+5.jh.class完善
+6.超时退出转账send，其他过程ws.send
+7.checkdevice 读取数据库设备ip
